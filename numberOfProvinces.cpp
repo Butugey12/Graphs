@@ -9,6 +9,23 @@ class Solution {
             }
         }
     }
+    void bfs(vector<int> adjList[] , int visited[] , int s) {
+        queue<int>q;
+        q.push(s);
+        visited[s]=1;
+        while(!q.empty()) {
+            int node = q.front();
+            q.pop();
+            for(auto it:adjList[node]) {
+                if(!visited[it]) {
+                    q.push(it);
+                    visited[it]=1;
+                }
+            }
+        }
+        
+        
+    }
   public:
     int numProvinces(vector<vector<int>> adj, int V) {
        vector<int> adjList[V];
